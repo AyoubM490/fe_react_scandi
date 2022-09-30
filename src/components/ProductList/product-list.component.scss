@@ -1,81 +1,80 @@
 .container {
-    min-height: 93vh;
-    padding: 30px;
-    padding-bottom: 0px;
-    display: flex;
-    flex-direction: column;
+  min-height: 93vh;
+  padding: 30px;
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .pl-nav {
-    display: flex;
-    align-items: center;
-    max-height: 45px;
-    max-width: auto;
-    .add {
-        margin-left: auto;
-        margin-right: 30px;
-        appearance: auto;
-        writing-mode: horizontal-tb !important;
-        text-rendering: auto;
-        letter-spacing: normal;
-        word-spacing: normal;
-        line-height: normal;
-        text-transform: none;
-        text-indent: 0px;
-        text-shadow: none;
-        display: inline-block;
-        text-align: center;
-        align-items: flex-start;
-        cursor: default;
-        box-sizing: border-box;
-        background-color: #E5E5E5;
-        color: black;
-        text-decoration: none;
-        padding: 1px 6px;
-        border-width: 2px;
-        border-style: outset;
-        border-color: buttonborder;
-        border-image: initial;
-        cursor: pointer;
-    }
-    
-    .delete-product-btn {
-        height: 24px;
-        border-style: outset;
-        cursor: pointer;
-    }
+  display: flex;
+  align-items: center;
+  max-height: 45px;
 
-    .add, .delete-product-btn  {
-        border-radius: 4px;
-    }
+  .add {
+    margin-left: auto;
+    margin-right: 30px;
+    appearance: auto;
+    writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+    background-color: #e5e5e5;
+    color: black;
+    text-decoration: none;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: black;
+    border-image: initial;
+    cursor: pointer;
+  }
 
-    .add:active, .delete-product-btn:active {
-        border-color: #E5E5E5;
-    }
+  .delete-product-btn {
+    height: 24px;
+    border-style: outset;
+    cursor: pointer;
+  }
+
+  .add,
+  .delete-product-btn {
+    border-radius: 4px;
+  }
+
+  .add:active,
+  .delete-product-btn:active {
+    border-color: #e5e5e5;
+  }
 }
-
-
 
 .product {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid black;
-    max-width: 189px;
-    padding: 30px;
-    text-align: center;
-    margin-bottom: 30px;
-}
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  max-width: 189px;
+  padding: 30px;
+  text-align: center;
+  margin-bottom: 30px;
 
-.delete-checkbox {
+  .delete-checkbox {
     position: relative;
     top: -22px;
     left: -61px;
+  }
 }
 
 .products {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 100%;
-    margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 100%;
+  margin-top: 30px;
 }
