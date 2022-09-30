@@ -25,7 +25,9 @@
       "react/jsx-props-no-spreading": "off",
       "react/no-array-index-key": "off",
       "class-methods-use-this": "off",
-      "jsx-a11y/label-has-associated-control": "off"
+      "jsx-a11y/label-has-associated-control": "off",
+      "prefer-const": "off",
+      "consistent-return": "off"
     },
     "ignorePatterns": [
       "dist/",
