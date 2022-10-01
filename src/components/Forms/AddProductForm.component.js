@@ -94,7 +94,7 @@ const AddProductForm = (props) => {
           onChange={onChangeType}
         >
           {types.map((type) => (
-            <option key={type} value={type}>
+            <option key={type} id={type} value={type}>
               {type}
             </option>
           ))}
