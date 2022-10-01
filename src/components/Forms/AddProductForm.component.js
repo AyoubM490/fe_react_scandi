@@ -43,7 +43,7 @@ const AddProductForm = (props) => {
   };
 
   return (
-    <form>
+    <form id="product_form">
       <div className="form-group">
         <label className="label" htmlFor="sku">
           SKU
