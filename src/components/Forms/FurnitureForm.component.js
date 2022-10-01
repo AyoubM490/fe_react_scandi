@@ -33,12 +33,12 @@ const FurnitureForm = ({
           className="form-control"
           value={height}
           onChange={onChangeHeight}
-          id="furniture-height"
+          id="height"
         />
       </div>
       <div className="notice">! Please provide Width in CM</div>
       <div className="form-group">
-        <label className="label" htmlFor="furniture-width">
+        <label className="label" htmlFor="width">
           Width (CM)
         </label>
         <input
@@ -46,7 +46,7 @@ const FurnitureForm = ({
           className="form-control"
           value={width}
           onChange={onChangeWidth}
-          id="furniture-width"
+          id="width"
         />
       </div>
       <div className="notice">! Please provide Length in CM</div>

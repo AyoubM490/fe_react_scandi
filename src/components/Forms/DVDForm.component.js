@@ -17,7 +17,7 @@ const DVDForm = ({ size, setSize }) => {
           onChange={onChangeSize}
           value={size}
           className="form-control"
-          id="dvd-size"
+          id="size"
         />
       </div>
     </div>

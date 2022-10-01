@@ -17,7 +17,7 @@ const BookForm = ({ weight, setWeight }) => {
           value={weight}
           onChange={onChangeWeight}
           className="form-control"
-          id="book-weight"
+          id="weight"
         />
       </div>
     </div>
