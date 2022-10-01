@@ -23,6 +23,7 @@ const FurnitureForm = ({
   return (
     <div className="furniture-form" id="Furniture">
       <div className="notice">! Please provide dimensions in HxWxL format</div>
+      <div className="notice mt-3">! Please provide Height in CM</div>
       <div className="form-group">
         <label className="label" htmlFor="furniture-height">
           Height (CM)
@@ -35,6 +36,7 @@ const FurnitureForm = ({
           id="furniture-height"
         />
       </div>
+      <div className="notice">! Please provide Width in CM</div>
       <div className="form-group">
         <label className="label" htmlFor="furniture-width">
           Width (CM)
@@ -47,6 +49,7 @@ const FurnitureForm = ({
           id="furniture-width"
         />
       </div>
+      <div className="notice">! Please provide Length in CM</div>
       <div className="form-group">
         <label className="label" htmlFor="furniture-length">
           Length (CM)

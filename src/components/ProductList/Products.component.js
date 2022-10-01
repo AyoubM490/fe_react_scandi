@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import Product from './Product.component';
 
-const Products = () => {
-  const [productsArr, setProductsArr] = useState([]);
+const Products = (props) => {
+  const {
+    productsArr, setProductsArr, checkedProducts, setCheckedProducts,
+  } = props;
 
   useEffect(() => {
     async function fetchDVDs() {
@@ -12,7 +15,7 @@ const Products = () => {
       dvds = await dvds.json();
       dvds = dvds.data;
 
-      return dvds;
+      return dvds || [];
     }
 
     async function fetchBooks() {
@@ -22,7 +25,7 @@ const Products = () => {
       books = await books.json();
       books = books.data;
 
-      return books;
+      return books || [];
     }
 
     async function fetchFurnitures() {
@@ -32,7 +35,7 @@ const Products = () => {
       furnitures = await furnitures.json();
       furnitures = furnitures.records;
 
-      return furnitures;
+      return furnitures || [];
     }
 
     async function fetchData() {
@@ -52,7 +55,7 @@ const Products = () => {
 
   const Products = productsArr.map((product) => (
     <Product
-      key={product.id}
+      product={product}
       sku={product.sku}
       name={product.name}
       price={product.price}
@@ -61,10 +64,18 @@ const Products = () => {
       height={product.height}
       width={product.width}
       length={product.length}
+      id={product.id}
+      checkedProducts={checkedProducts}
+      setCheckedProducts={setCheckedProducts}
     />
   ));
 
   return Products;
+};
+
+Products.propTypes = {
+  id: PropTypes.string.isRequired,
+  setId: PropTypes.func.isRequired,
 };
 
 export default Products;
