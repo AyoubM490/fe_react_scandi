@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
-import DVDForm from '../Forms/DVDForm.component';
-import BookForm from '../Forms/BookForm.component';
-import FurnitureForm from '../Forms/FurnitureForm.component';
 import './add-product.component.scss';
-import ProductListNav from '../Navs/ProductListNav.component';
+import ProductAddNav from '../Navs/ProductAddNav.component';
 import AddProductForm from '../Forms/AddProductForm.component';
 
 function AddProduct(props) {
@@ -32,7 +27,7 @@ function AddProduct(props) {
   } = props;
   return (
     <div>
-      <ProductListNav
+      <ProductAddNav
         sku={sku}
         setSku={setSku}
         name={name}

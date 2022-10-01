@@ -1,85 +1,84 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const ProductListNav = (props) => {
-  const {
-    sku, name, price, type, size, weight, height, width, length,
-  } = props;
-  const dvdData = {
-    sku,
-    name,
-    price,
-    size,
-  };
-
-  const bookData = {
-    sku,
-    name,
-    price,
-    weight,
-  };
-
-  const furnitureData = {
-    sku,
-    name,
-    price,
-    height,
-    width,
-    length,
-  };
+  const { checkedProducts } = props;
+  const dvds = checkedProducts.filter((product) => product.size !== undefined);
+  const furnitures = checkedProducts.filter(
+    (product) => product.length !== undefined,
+  );
+  const books = checkedProducts.filter(
+    (product) => product.weight !== undefined,
+  );
   const onSubmit = (e) => {
     e.preventDefault();
-    switch (type) {
-      case 'DVD':
-        axios.post(
-          'https://ayoub-chahir-scandi-api.herokuapp.com/api/dvd/create.php',
-          dvdData,
+
+    if (dvds) {
+      dvds.forEach((dvd) => {
+        fetch(
+          'https://ayoub-chahir-scandi-api.herokuapp.com/api/dvd/delete.php/',
+          {
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ id: dvd.id }),
+          },
         );
-        break;
-      case 'Book':
-        axios.post(
-          'https://ayoub-chahir-scandi-api.herokuapp.com/api/book/create.php',
-          bookData,
+      });
+    }
+
+    if (furnitures) {
+      furnitures.forEach((furniture) => {
+        fetch(
+          'https://ayoub-chahir-scandi-api.herokuapp.com/api/furniture/delete.php/',
+          {
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ id: furniture.id }),
+          },
         );
-        break;
-      case 'Furniture':
-        axios.post(
-          'https://ayoub-chahir-scandi-api.herokuapp.com/api/furniture/create.php',
-          furnitureData,
+      });
+    }
+
+    if (books) {
+      books.forEach((book) => {
+        fetch(
+          'https://ayoub-chahir-scandi-api.herokuapp.com/api/book/delete.php/',
+          {
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              id: book.id,
+            }),
+          },
         );
-        break;
-      default:
-        break;
+      });
     }
   };
-
   return (
     <div className="pl-nav">
-      <h1>Product Add</h1>
-      <form className="ml-auto" onSubmit={onSubmit}>
-        <button type="submit" className="save-product-btn">
-          Save
+      <h1>Product List</h1>
+      <Link to="/addproduct" className="add">
+        ADD
+      </Link>
+      <form onSubmit={onSubmit}>
+        <button type="submit" className="delete-product-btn">
+          MASS DELETE
         </button>
       </form>
-      <Link to="/" className="cancel-product-btn">
-        Cancel
-      </Link>
     </div>
   );
 };
 
 ProductListNav.propTypes = {
-  sku: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  size: PropTypes.string.isRequired,
-  weight: PropTypes.string.isRequired,
-  height: PropTypes.string.isRequired,
-  width: PropTypes.string.isRequired,
-  length: PropTypes.string.isRequired,
+  checkedProducts: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default ProductListNav;
