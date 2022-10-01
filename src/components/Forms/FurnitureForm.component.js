@@ -59,7 +59,7 @@ const FurnitureForm = ({
           className="form-control"
           value={length}
           onChange={onChangeLength}
-          id="furniture-length"
+          id="length"
         />
       </div>
     </div>
