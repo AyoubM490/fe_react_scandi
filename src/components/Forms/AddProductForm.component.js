@@ -90,7 +90,7 @@ const AddProductForm = (props) => {
         </label>
         <select
           className="form-control"
-          id="type-switcher"
+          id="productType"
           onChange={onChangeType}
         >
           {types.map((type) => (
