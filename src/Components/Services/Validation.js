@@ -1,6 +1,6 @@
 export default class Validation {
   static validSKU(data) {
-    const pattern = /^([A-Z0-9]){8}$/;
+    const pattern = /^([A-Za-z0-9\s]){3,}$/;
     if (data.match(pattern)) return true;
     return false;
   }
