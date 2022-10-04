@@ -6,7 +6,11 @@ function Products({ products }) {
   let productsList;
   if (products === null) return <div>Loading...</div>;
   productsList = products.map((product, index) => (
-    <div className="product-item" key={index}>
+    <div
+      className="product-item"
+      id={product.property.toLowerCase()}
+      key={index}
+    >
       <input type="checkbox" value={product.sku} className="delete-checkbox" />
       <div className="product-desc">
         <div>{product.sku}</div>
