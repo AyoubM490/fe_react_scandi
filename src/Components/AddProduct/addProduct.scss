@@ -1,0 +1,31 @@
+#product_form {
+  width: 400px;
+  position: relative;
+}
+
+#product_form input {
+  position: absolute;
+  right: 0;
+  height: 20px;
+  width: 50%;
+}
+
+#product_form select {
+  position: absolute;
+  right: 0;
+  width: 52%;
+  height: 25px;
+}
+
+#product_form div {
+  margin-top: 25px;
+  text-align: left;
+}
+
+#spec-inputs {
+  padding-top: 25px;
+}
+
+#spec-inputs p {
+  text-align: right;
+}

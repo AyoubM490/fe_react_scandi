@@ -1,0 +1,19 @@
+#products-heading {
+  align-items: center;
+  flex-basis: 100%;
+  margin-left: 20px;
+  margin-right: 20px;
+  justify-content: space-between;
+}
+
+.control-button {
+  background-color: white;
+  padding: 2.5px 5px;
+  text-transform: uppercase;
+  box-shadow: 5px 3px black;
+  margin: 5px;
+  text-decoration: none;
+  color: black;
+  border: 1px solid black;
+  cursor: pointer;
+}
