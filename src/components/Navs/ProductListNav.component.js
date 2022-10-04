@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const ProductListNav = (props) => {
-  const { checkedProducts } = props;
+  const { checkedProducts, productsArr } = props;
   const dvds = checkedProducts.filter((product) => product.size !== undefined);
   const furnitures = checkedProducts.filter(
     (product) => product.length !== undefined,
@@ -79,6 +79,7 @@ const ProductListNav = (props) => {
 
 ProductListNav.propTypes = {
   checkedProducts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  productsArr: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default ProductListNav;

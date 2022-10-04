@@ -8,7 +8,10 @@ function ProductList() {
   const [checkedProducts, setCheckedProducts] = useState([]);
   return (
     <div>
-      <ProductListNav checkedProducts={checkedProducts} />
+      <ProductListNav
+        checkedProducts={checkedProducts}
+        productsArr={productsArr}
+      />
       <hr />
       <div className="products">
         <Products

@@ -3,18 +3,15 @@ import PropTypes from 'prop-types';
 
 const Product = (props) => {
   const {
+    product,
     sku,
     name,
     price,
-    size,
-    weight,
-    height,
-    width,
-    length,
-    id,
+    property,
+    propertyValue,
+    units,
     checkedProducts,
     setCheckedProducts,
-    product,
   } = props;
 
   const [checked, setChecked] = useState(true);
@@ -47,30 +44,35 @@ const Product = (props) => {
         <span>{name}</span>
       </div>
       <div className="product-price" id="price">
-        {price}
+        {Number(price).toFixed(2)}
         {' '}
         $
       </div>
       <div id="productType">
-        {size && (
+        {property === 'Size' && (
           <div className="product-type" id="size">
-            {size}
-            MB
+            Size:
+            {' '}
+            {propertyValue}
+            {' '}
+            {units}
           </div>
         )}
-        {weight && (
+        {property === 'Weight' && (
           <div className="product-type" id="weight">
-            {Number(weight)}
-            KG
+            Weight:
+            {' '}
+            {propertyValue}
+            {units}
           </div>
         )}
-        {height && width && length && (
+        {property === 'WxHxL' && (
           <div className="product-type">
-            <span id="height">{Number(height)}</span>
-            x
-            <span id="width">{Number(width)}</span>
-            x
-            <span id="length">{Number(length)}</span>
+            {' '}
+            Dimension:
+            {' '}
+            {}
+            {propertyValue}
           </div>
         )}
       </div>
@@ -79,18 +81,15 @@ const Product = (props) => {
 };
 
 Product.propTypes = {
+  product: PropTypes.string.isRequired,
   sku: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  size: PropTypes.number,
-  weight: PropTypes.number,
-  height: PropTypes.number,
-  width: PropTypes.number,
-  length: PropTypes.number,
-  id: PropTypes.string.isRequired,
+  property: PropTypes.string.isRequired,
+  propertyValue: PropTypes.number.isRequired,
+  units: PropTypes.string.isRequired,
   checkedProducts: PropTypes.arrayOf(PropTypes.object).isRequired,
   setCheckedProducts: PropTypes.func.isRequired,
-  product: PropTypes.object.isRequired,
 };
 
 export default Product;

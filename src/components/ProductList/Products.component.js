@@ -8,43 +8,14 @@ const Products = (props) => {
   } = props;
 
   useEffect(() => {
-    async function fetchDVDs() {
-      let dvds = await fetch(
-        'https://ayoub-chahir-scandi-api.herokuapp.com/api/dvd/read.php',
-      );
-      dvds = await dvds.json();
-      dvds = dvds.data;
-
-      return dvds || [];
-    }
-
-    async function fetchBooks() {
-      let books = await fetch(
-        'https://ayoub-chahir-scandi-api.herokuapp.com/api/book/read.php',
-      );
-      books = await books.json();
-      books = books.data;
-
-      return books || [];
-    }
-
-    async function fetchFurnitures() {
-      let furnitures = await fetch(
-        'https://ayoub-chahir-scandi-api.herokuapp.com/api/furniture/read.php',
-      );
-      furnitures = await furnitures.json();
-      furnitures = furnitures.records;
-
-      return furnitures || [];
-    }
-
     async function fetchData() {
-      const dvds = await fetchDVDs();
-      const books = await fetchBooks();
-      const furnitures = await fetchFurnitures();
+      let products = await fetch(
+        'https://ayoub-chahir-scandi-api.herokuapp.com/api/products',
+      );
+      products = await products.json();
+      products = products.data;
 
-      let products = dvds.concat(books).concat(furnitures);
-      return products;
+      return products || [];
     }
 
     let res = fetchData();
@@ -57,14 +28,11 @@ const Products = (props) => {
     <Product
       product={product}
       sku={product.sku}
-      name={product.name}
+      name={product.product}
       price={product.price}
-      size={product.size}
-      weight={product.weight}
-      height={product.height}
-      width={product.width}
-      length={product.length}
-      id={product.id}
+      property={product.property}
+      propertyValue={product.property_value}
+      units={product.units}
       checkedProducts={checkedProducts}
       setCheckedProducts={setCheckedProducts}
     />
