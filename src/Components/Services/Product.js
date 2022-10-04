@@ -71,12 +71,8 @@ export default class Product extends ProductsApi {
     const list = [];
     toDelete.forEach((item) => list.push(item.value));
     if (list.length > 0) {
-      list.forEach(async (item) => {
-        const answer = await Product.delete([item]);
-        if (answer.ok) {
-          return answer.ok;
-        }
-      });
+      const answer = await Product.delete(list);
+      if (answer.ok) return answer.ok;
     }
   };
 }
