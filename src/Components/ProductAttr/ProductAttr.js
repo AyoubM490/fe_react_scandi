@@ -61,7 +61,7 @@ function ProductAttr({ type }) {
             type="number"
             min="1"
             step="0.1"
-            id={attrs.name}
+            id={attrs.name.toLowerCase()}
             required
             className="spec-attr"
           />
